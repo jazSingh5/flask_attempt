@@ -1,25 +1,25 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/home')
+city_names = ["Paris","London","Rome", "Tahiti"]
+name = "Jaskaran"
+
+@app.route('/')
 def home():
-    city_names = ["Paris","London","Rome", "Tahiti"]
-    name = "Jaskaran"
+    
     return '''
     <html>
     <body>
         <h1>Hello, '''  + name +'''</h1>
-        <p> <a href = "https://www.google.com" >not google</a> </p>
+        <p> <a href = "www.google.com" >not google</a> </p>
         
-       <ul>
-{% for things in '''city_names''' %}
-  <li>{{ things}}</li>
-{% endfor %}
-</ul>
+    <ul>  <li> ''' + (city_names[0]) + ''' </li> 
+    <li> ''' + (city_names[1]) + '''</li>
+    <li> ''' + (city_names[2]) + '''</li>
+     <li> ''' + (city_names[3]) + '''</li> </ul> 
                 
     </body>
     </html>'''
     
     
    
-if __name__ == '__main__
