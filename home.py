@@ -3,19 +3,23 @@ app = Flask(__name__)
 
 @app.route('/home')
 def home():
-  
+    city_names = ["Paris","London","Rome", "Tahiti"]
     name = "Jaskaran"
     return '''
     <html>
     <body>
-        <h1>Hello, '''  + name +'''!</h1>
+        <h1>Hello, '''  + name +'''</h1>
         <p> <a href = "https://www.google.com" >not google</a> </p>
-        <p> <ul>  <li> Paris </li> <li> London </li> <li> Rome </li> <li> Tahiti </li> </ul> </p>
+        
+       <ul>
+{% for things in '''city_names''' %}
+  <li>{{ things}}</li>
+{% endfor %}
+</ul>
                 
     </body>
     </html>'''
     
     
    
-if __name__ == '__main__':
-    app.run()
+if __name__ == '__main__
